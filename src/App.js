@@ -1,25 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { HeaderInfo } from './Components/Header/HeaderInfo';
+export const App = () => {
+  const downloadCV = () => {
+    const a = document.createElement('a');
+    a.href = 'path_to_your_cv.pdf'; // Provide the exact path to the CV file
+    a.download = 'MyCV.pdf'; // Name of the downloaded file
+    a.click();
+  };
 
-export default App;
+  const hireMe = () => {
+    alert('Hire me button clicked!');
+  };
+
+  return (
+    <HeaderInfo
+      title="Hello, I'm Mark"
+      paragraph="Welcome to my personal website. Here, you can find all information about me."
+      onHireMeClick={hireMe}
+      onDownloadClick={downloadCV}
+    />
+  );
+};
